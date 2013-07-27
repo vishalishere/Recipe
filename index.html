@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="MyRecipeBoxes">
+<head>
+	<meta charset="UTF-8">
+	<title>MyRecipeBoxes</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	<script type="text/javascript" src="libs/angularFire.min.js"></script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+
+
+</head>
+<body>
+	<div ng-controller="User">
+		<span ng-show="user">
+		{{user.email}} | <a href="#" ng-click="logout()">Logout</a>
+		</span>
+		<a href="#/login" ng-hide="user">Login</a>
+	</div>
+	<div ng-view></div>
+	<script type="text/javascript" src="core/app.js"></script>
+	<script type="text/javascript" src="core/routes.js"></script>
+	<script type="text/javascript" src="controllers/UserController.js"></script>
+	<script type="text/javascript" src="controllers/SignUpController.js"></script>
+</body>
+
+</html>

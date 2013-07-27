@@ -1,0 +1,10 @@
+<form name="signup">
+	<div ng-show="user.error">{{user.error}}</div>
+	<input name="email" ng-model="user.email" placeholder="email" type="email" required />
+	<div ng-show="signup.email.$error.email">Email is not Valid</div>
+	<input name="password" ng-model="user.password" placeholder="password" type="password" required ng-minlength="6" />
+	<div ng-show="signup.password.$error.minlength">Password is to short</div>
+
+	<input type="submit" ng-disabled="signup.$invalid" ng-click="log_user()" value="Login" />
+</form>
+
