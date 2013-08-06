@@ -12,7 +12,7 @@ MyRecipeBoxes.controller("User",['$scope','$location','angularFireCollection','a
 
 
 	$scope.$on("angularFireAuth:login", function(evt, user) {
-	  	$location.path("/app");
+	  	$location.path("/boxes");
 	});
 	$scope.$on("angularFireAuth:logout", function(evt, user) {
 	  	$location.path("/");

@@ -1,0 +1,8 @@
+<form name="createbox">
+	<input name="title" ng-model="newbox.title" placeholder="Name" type="text" required ng-minlenght="4" />
+	<div ng-show="createbox.title.$error.minlength">Name is to short</div>
+	<input type="radio" ng-model="newbox.privacy" value="private" id="privacy.private"><label for="privacy.private">Private</label>
+    <input type="radio" ng-model="newbox.privacy" value="public" id="privacy.public"><label for="privacy.public">Public</label>
+	<input type="submit" ng-disabled="createbox.$invalid" ng-click="create_box()" value="Create Box" />
+</form>
+

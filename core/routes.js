@@ -1,11 +1,7 @@
 MyRecipeBoxes.config(function($routeProvider)
 {
 
-	$routeProvider.when("/app",{
-		templateUrl: 'views/boxes.html',
-		controller: 'User',
-		authRequired: true,
-	})
+	$routeProvider
 	.when("/",{
 		templateUrl: 'views/home.html',
 		controller: "SignUp",
@@ -15,6 +11,15 @@ MyRecipeBoxes.config(function($routeProvider)
 		templateUrl: 'views/login.html',
 		controller: "User",
 		authRequired: false
+	})
+	.when("/boxes",{
+		templateUrl: 'views/boxes/list.html',
+		controller: "Boxes",
+		authRequired: false
+	})
+	.when("/box/:user_id/:recipe_id",{
+		templateUrl: 'views/boxes/box.html',
+		controller: "Box",
+		authRequired: false
 	});
-
 });
