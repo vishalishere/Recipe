@@ -6,7 +6,7 @@
 	<div ng-show="signup.password.$error.minlength">Password is to short</div>
 	<input name ="confirm" ng-model="user.confirm" placeholder="confirm password" ng-change="validatePassword()" type="password" required ng-minlength="6" />
 
-	<div ng-show="signup.confirm.$error.dontMatch">Passwords do not match</div>
+	<div ng-show="signup.confirm.$error.notMatching">Passwords do not match</div>
 	<input type="submit" ng-disabled="signup.$invalid" ng-click="create_user()" value="sign up" />
 </form>
 
