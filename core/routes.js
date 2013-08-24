@@ -17,9 +17,14 @@ MyRecipeBoxes.config(function($routeProvider)
 		controller: "Boxes",
 		authRequired: false
 	})
-	.when("/box/:user_id/:recipe_id",{
+	.when("/box/:user_id/:box_id",{
 		templateUrl: 'views/boxes/box.html',
 		controller: "Box",
 		authRequired: false
+	})
+	.when("/recipe/create/:user_id/:box_id/",{
+		templateUrl: 'views/recipes/create.html',
+		controller: 'Recipes',
+		authRequired: true
 	});
 });

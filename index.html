@@ -12,10 +12,8 @@
 </head>
 <body>
 	<div ng-controller="User">
-		<span ng-show="user">
-		{{user.email}} | <a href="#" ng-click="logout()">Logout</a>
-		</span>
 		<a href="#/login" ng-hide="user">Login</a>
+		<span ng-show="user">{{user.email}} | <a href="#" ng-click="logout()">Logout</a></span>
 	</div>
 	<div ng-view></div>
 	<script type="text/javascript" src="libs/app.min.js"></script>
