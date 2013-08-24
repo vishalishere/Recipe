@@ -1,16 +1,14 @@
 MyRecipeBoxes.controller("User",['$scope','$location','angularFireCollection','angularFireAuth',function($scope,$location,angularFireCollection,angularFireAuth)
 {
 
-	// don't redirect on login
-	var redirect = false;
 
 	$scope.login = function()
 	{
-		// redirect on login
-		redirect = true;
-
 		// pass the user
-		angularFireAuth.login("password",$scope.user);
+		angularFireAuth.login("password",$scope.user).then(function()
+		{
+			$location.path("/boxes");
+		});
 	};
 
 	$scope.logout = function()
@@ -20,11 +18,13 @@ MyRecipeBoxes.controller("User",['$scope','$location','angularFireCollection','a
 
 	$scope.create_user = function()
 	{
-		// redirect on login
-		redirect = true;
-
 		// create the user
-		angularFireAuth.createUser($scope.user.email,$scope.user.password);
+		angularFireAuth.createUser($scope.user.email,$scope.user.password,function(user){
+			if(user)
+			{
+				$location.path("/boxes");
+			}
+		});
 	};
 
 	// validate that the password and confirm password match
@@ -34,23 +34,7 @@ MyRecipeBoxes.controller("User",['$scope','$location','angularFireCollection','a
 		$scope.signup.confirm.$error.notMatching = $scope.user.password !== $scope.user.confirm;
 	};
 
-	$scope.$on("angularFireAuth:login", function() {
-
-		// if the function is being called because of a login call or signup call
-		if(redirect)
-		{
-			$location.path("/boxes");
-			redirect = false;
-		}
-
-		// this means that is was called because the sure was saved, so don't redirect just load the page they are on
-	});
-	$scope.$on("angularFireAuth:logout", function() {
-		$location.path("/");
-	});
-
 	$scope.$on("angularFireAuth:error", function(evt, err) {
 		console.log('err',err);
 	});
-
 }]);
