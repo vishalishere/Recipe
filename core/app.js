@@ -1,11 +1,9 @@
-var MyRecipeBoxes = angular.module("MyRecipeBoxes", ["firebase",function($locationProvider)
-{
-	//$locationProvider.html5Mode(true).hashPrefix('!');
-
-}]);
+var MyRecipeBoxes = angular.module("MyRecipeBoxes", ["firebase"]);
 
 MyRecipeBoxes.run(['angularFireAuth',function(angularFireAuth)
 {
 	var url = "https://myrecipeboxes.firebaseio.com/";
 	angularFireAuth.initialize(url,{'name':'user','path':'/'});
 }]);
+
+MyRecipeBoxes.constant("FIREBASE_URL","https://myrecipeboxes.firebaseio.com/");
