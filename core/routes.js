@@ -22,6 +22,16 @@ MyRecipeBoxes.config(function($routeProvider)
 		controller: "Box",
 		authRequired: false
 	})
+	.when("/recipe/:recipe_id",{
+		templateUrl: 'views/recipes/get.html',
+		controller: 'Recipe',
+		authRequired: true
+	})
+	.when("/recipe/:recipe_id/edit",{
+		templateUrl: 'views/recipes/create.html',
+		controller: 'Recipe',
+		authRequired: true
+	})
 	.when("/recipe/create/:user_id/:box_id/",{
 		templateUrl: 'views/recipes/create.html',
 		controller: 'Recipes',

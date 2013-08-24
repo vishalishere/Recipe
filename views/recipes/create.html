@@ -1,13 +1,13 @@
 <form name="createrecipe">
 	<label>Title</label>
 	<input type="text" ng-model="recipe.title" />
-	<div ng-repeat="ingred in recipe.ingredents">
+	<div ng-repeat="ingred in recipe.ingredients">
 		<label>Size:</label>
-		<input type="text" ng-model="recipe.ingredents[$index].size" />
-		<label>Ingredent:</label>
-		<input type="text" ng-model="recipe.ingredents[$index].food">
+		<input type="text" ng-model="recipe.ingredients[$index].size" />
+		<label>Ingredient:</label>
+		<input type="text" ng-model="recipe.ingredients[$index].food">
 	</div>
-	<a href="" ng-click="add_ingred()">Add Ingredent</a>
+	<a href="" ng-click="add_ingred()">Add ingredients</a>
 
 	<div>
 		<label>Pre-heat Oven To (optional):</label>
