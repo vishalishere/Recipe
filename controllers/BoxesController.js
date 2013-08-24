@@ -12,4 +12,9 @@ MyRecipeBoxes.controller("Boxes",['FIREBASE_URL','$scope','firebaseCollection',f
 		});
 		$scope.newbox = {};
 	};
+
+	$scope.log = function()
+	{
+		console.log('$scope.createbox.title',$scope.createbox.title);
+	};
 }]);

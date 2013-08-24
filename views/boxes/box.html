@@ -1,5 +1,10 @@
-<h2>{{box.title}}</h2>
-<a href="#/recipe/create/{{user.id}}/{{box.$id}}">Add New Recipe</a>
+<div class="navbar">
+	<h2 class="pull-left navbar-text">{{box.title}}</h2>
+	<div class="navbar-btn pull-right">
+		<a href="#/recipe/create/{{user.id}}/{{box.$id}}" class="btn btn-success navbar-btn pull-left">Add New Recipe</a>
+	</div>
+</div>
 
-
-<div ng-repeat="recipe in recipes"><a href="#/recipe/{{recipe.$id}}">{{recipe.title}}</a></div>
+<div class="list-group">
+	<a href="#/recipe/{{recipe.$id}}" ng-repeat="recipe in recipes" class="list-group-item">{{recipe.title}}<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+</div>

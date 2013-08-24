@@ -7,15 +7,32 @@
 	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
 	<script type="text/javascript" src="libs/angularFire.min.js"></script>
 	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
-
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.css">
+<!-- 	<link rel="stylesheet" href="css/app.css">
+ -->
 
 </head>
 <body>
-	<div ng-controller="User">
-		<a href="#/login" ng-hide="user">Login</a>
-		<span ng-show="user">{{user.email}} | <a href="#" ng-click="logout()">Logout</a></span>
+<header class="navbar navbar-default"  ng-controller="User">
+	<div class="container">
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">My Recipe Box.es</a>
+		  </div>
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">
+			<a href="#/login" class="navbar-link pull-right" ng-hide="user">Login</a>
+			<span ng-show="user" class="navbar-text pull-right">{{user.email}} | <a href="#" class="navbar-link" ng-click="logout()">Logout</a></span>
+		</div>
 	</div>
-	<div ng-view></div>
+</header>
+
+<div class="container" ng-view></div>
 	<script type="text/javascript" src="libs/app.min.js"></script>
 </body>
 

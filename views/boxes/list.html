@@ -1,3 +1,9 @@
-<h1>My Recipe Boxes</h1>
+<ul class="nav nav-tabs">
+	<li class="active"><a>My Boxes</a></li>
+	<li><a>All Boxes</a></li>
+</ul>
+<div class="list-group">
+	<a ng-repeat="box in boxes | filter:{user_id: user.id}" href="#/box/{{user.id}}/{{box.$id}}" class="list-group-item">{{box.title}} <span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+</div>
+
 <createbox></createbox>
-<div ng-repeat="box in boxes | filter:{user_id: user.id}"><a href="#/box/{{user.id}}/{{box.$id}}">{{box.title}}</a></div>

@@ -1,8 +1,23 @@
-<form name="createbox">
-	<input name="title" ng-model="newbox.title" placeholder="Name" type="text" required ng-minlenght="4" />
-	<div ng-show="createbox.title.$error.minlength">Name is to short</div>
-	<input type="radio" ng-model="newbox.privacy" value="private" id="privacy.private"><label for="privacy.private">Private</label>
-    <input type="radio" ng-model="newbox.privacy" value="public" id="privacy.public"><label for="privacy.public">Public</label>
-	<input type="submit" ng-disabled="createbox.$invalid" ng-click="create_box()" value="Create Box" />
+<form name="createbox" class="well">
+	<h3>New Box</h3>
+	<div class="form-group" ng-class="{'has-error': createbox.title.$error.minlength }">
+		<input name="title" ng-model="newbox.title" placeholder="Name" type="text" required ng-minlength="4" class="form-control" />
+		<div class="help-block" ng-show="createbox.title.$error.minlength">Name is to short</div>
+	</div>
+	<div class="form-group">
+		<div class="radio-inline">
+			<label for="privacy.private">
+				<input type="radio" ng-model="newbox.privacy" value="private" id="privacy.private"> Private
+			</label>
+		</div>
+		<div class="radio-inline">
+			<label for="privacy.public">
+	    		<input type="radio" ng-model="newbox.privacy" value="public" id="privacy.public"> Public
+	    	</label>
+	    </div>
+    </div>
+    <div class="form-group">
+		<input type="submit" ng-disabled="createbox.$invalid" ng-click="create_box()" value="Create Box" class="btn btn-success" />
+	</div>
 </form>
 

@@ -1,5 +1,7 @@
 MyRecipeBoxes.controller("Recipes",['FIREBASE_URL','$scope','$location','firebaseCollection','$routeParams',function(FIREBASE_URL,$scope,$location,firebaseCollection,$routeParams)
 {
+	$scope.sizes = ["Measurment","Cup(s)","Tbsp(s)","Tsp(s)","Oz(s)","None"];
+	$scope.open = false;
 	$scope.recipe = {};
 	$scope.recipe.ingredients = [{}];
 
