@@ -1,4 +1,8 @@
 /* global MyRecipeBoxes */
+
+// toArray filter to allow filtering on objects.
+// converts object to array
+// key set as an key value pair with the key of $key
 MyRecipeBoxes.filter('toArray', function () {
     'use strict';
 
