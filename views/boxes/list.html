@@ -1,9 +1,13 @@
-<ul class="nav nav-tabs">
-	<li class="active"><a>My Boxes</a></li>
-	<li><a>All Boxes</a></li>
-</ul>
-<div class="list-group">
-	<a ng-repeat="box in boxes | filter:{user_id: user.id}" href="#/box/{{user.id}}/{{box.$id}}" class="list-group-item">{{box.title}} <span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-</div>
 
+<ul class="nav nav-tabs">
+	<li ng-class="{'active':my_boxes}" ng-class="my_boxes" ng-click="switch_filter('user')"><a>My Boxes</a></li>
+	<li ng-class="{'active':!my_boxes}" ng-click="switch_filter('public')"><a>All Boxes</a></li>
+</ul>
+<div class="row">
+	<div class="col-xs-6 col-md-2" ng-repeat="box in boxes | toArray | filter:box_filter">
+		<div class="box">
+			<a href="#/boxes/{{box.$key}}">{{box.title}}</a>
+		</div>
+	</div>
+</div>
 <createbox></createbox>

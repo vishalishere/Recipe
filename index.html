@@ -3,37 +3,48 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MyRecipeBoxes</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
-	<script type="text/javascript" src="libs/angularFire.min.js"></script>
-	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+
+	<!-- Angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular-route.js"></script>
+
+	<!-- Firebase -->
+	<script src="//cdn.firebase.com/v0/firebase.js"></script>
+	<script type='text/javascript' src='//cdn.firebase.com/v0/firebase-simple-login.js'></script>
+
+	<!-- AngularFire -->
+	<script src="//cdn.firebase.com/libs/angularfire/0.6.0/angularfire.js"></script>
+	<script type="text/javascript" src="js/libs/FireLogin.js"></script>
+	<script type="text/javascript" src="js/libs/ui-bootstrap-collapse-0.10.0.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="js/app.min.js"></script>
+
+	<!-- CSS -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/bootstrap.css">
-<!-- 	<link rel="stylesheet" href="css/app.css">
- -->
+	<link rel="stylesheet" href="css/app.css">
 
 </head>
 <body>
-<header class="navbar navbar-default"  ng-controller="User">
-	<div class="container">
-		  <div class="navbar-header">
-		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-		      <span class="sr-only">Toggle navigation</span>
-		      <span class="icon-bar"></span>
-		      <span class="icon-bar"></span>
-		      <span class="icon-bar"></span>
-		    </button>
-		    <a class="navbar-brand" href="#">My Recipe Box.es</a>
-		  </div>
-		  <div class="collapse navbar-collapse navbar-ex1-collapse">
-			<a href="#/login" class="navbar-link pull-right" ng-hide="user">Login</a>
-			<span ng-show="user" class="navbar-text pull-right">{{user.email}} | <a href="#" class="navbar-link" ng-click="logout()">Logout</a></span>
+	<header class="navbar navbar-default">
+		<div class="container">
+			  <div class="navbar-header">
+			    <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+			    <a class="navbar-brand" href="#/">My Recipe Box.es</a>
+			  </div>
+			  <div collapse="isCollapsed">
+				<a href="#/login" class="navbar-link navbar-text pull-right" ng-hide="user">Login</a>
+				<span ng-show="user" class="navbar-text pull-right">Hello {{user_info.first_name}} | <a href="#" class="navbar-link" ng-click="logout()">Logout</a></span>
+			</div>
 		</div>
-	</div>
-</header>
-
-<div class="container" ng-view></div>
-	<script type="text/javascript" src="libs/app.min.js"></script>
+	</header>
+	<div class="container" ng-view></div>
 </body>
 
 </html>

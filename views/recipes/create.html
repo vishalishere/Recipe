@@ -1,20 +1,20 @@
-<form name="createrecipe" class="well">
+<form name="createrecipe" class="well clearfix">
 	<div class="form-group">
 		<label class="control-label">Title</label>
 		<input type="text" class="form-control" ng-model="recipe.title" />
 	</div>
 	<div class="form-group row" ng-repeat="ingred in recipe.ingredients">
 		<div class="col-md-6">
+
 			<label class="control-label">Size:</label>
 			<div class="row">
 				<div class="col-xs-6">
-
 					<input class="form-control" type="text" ng-model="recipe.ingredients[$index].size" />
 				</div>
 				<div class="col-xs-6">
-				<select  class="form-control">
-					<option ng-repeat="option in sizes">{{option}}</option>
-				</select>
+					<select class="form-control" ng-model="recipe.ingredients[$index].measurement" >
+						<option ng-repeat="option in sizes">{{option}}</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="form-group clearfix">
-		<a href="" class="btn btn-primary pull-right" ng-click="add_ingred()">Add Ingredient</a>
+		<a href="" class="btn btn-primary pull-right" ng-click="recipe.ingredients.push({})">Add Ingredient</a>
 	</div>
 	<div class="form-group">
 		<label class="control-label">Pre-heat Oven To (optional):</label>
@@ -35,7 +35,14 @@
 		<label class="control-label">Directions:</label>
 		<textarea ng-model="recipe.directions" id="" cols="30" rows="10" class="form-control"></textarea>
 	</div>
+	<div class="form-group">
+		<label class="control-label">Recipe Box:</label>
+		<select class="form-control" ng-model="box_$id" required >
+			<option ng-repeat="($id,option) in boxes" value="{{$id}}">{{option.title}}</option>
+		</select>
+	</div>
 
-	<input type="submit" ng-disabled="createbox.$invalid" ng-click="create_recipe()" value="Create Recipe" />
+
+	<input type="submit" ng-disabled="createbox.$invalid" ng-click="save_recipe()" value="Save Recipe" class="btn btn-primary pull-right" />
 </form>
 

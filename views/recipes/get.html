@@ -1,10 +1,14 @@
-<h1>{{recipe.title}}</h1>
+<p><a href="#/">Boxes</a> > <a href="#/boxes/{{box_$id}}">{{box.title}}</a> > {{recipe.title}} </p>
+<div class="navbar">
+	<h2 class="pull-left navbar-text">{{recipe.title}}</h2>
+	<a href="#/boxes/{{box_$id}}/recipes/{{recipe_$id}}/edit" ng-show="box.user_id==user.uid"  class="btn btn-success navbar-btn pull-right"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+	<a href="#/boxes/{{box_$id}}/recipes/{{recipe_$id}}/fork" ng-show="box.user_id!=user.uid"  class="btn btn-success navbar-btn pull-right"><i class="glyphicon glyphicon-random"></i> Fork</a>
+</div>
 <p class="alert alert-warning">Preheat Oven To: {{recipe.preheat}}&deg;</p>
 <h2>Ingredients</h2>
 <ul>
-	<li ng-repeat="ingredient in recipe.ingredients">{{ingredient.size}} {{ingredient.food}}</li>
+	<li ng-repeat="ingredient in recipe.ingredients">{{ingredient.size}} {{ingredient.measurement}} {{boxingredient.food}}</li>
 </ul>
 <h2>Directions:</h2>
 <p>{{recipe.directions}}</p>
 
-<a href="#/recipe/{{recipe.$id}}/edit">Edit</a>
