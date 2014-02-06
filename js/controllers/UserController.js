@@ -1,4 +1,11 @@
-MyRecipeBoxes.controller("User",['$scope','$location','$firebase','firebaseRefManager','FIREBASE_URL','$rootScope','$fireLogin',function($scope,$location,$firebase,firebaseRefManager,FIREBASE_URL,$rootScope,$fireLogin)
+MyRecipeBoxes.controller("User",[
+	'$scope',
+	'$location',
+	'$firebase',
+	'FIREBASE_URL',
+	'$rootScope',
+	'$fireLogin',
+	function($scope,$location,$firebase,FIREBASE_URL,$rootScope,$fireLogin)
 {
 
 	$scope.login = function()
@@ -20,7 +27,7 @@ MyRecipeBoxes.controller("User",['$scope','$location','$firebase','firebaseRefMa
 			console.log('user',user);
 			if(user)
 			{
-				$rootScope.user_info = $firebase(firebaseRefManager(FIREBASE_URL+"users").child(user.uid));
+				$rootScope.user_info = $firebase(new Firebase(FIREBASE_URL+"users/"+user.uid));
 				$rootScope.user_info.first_name = $scope.user_form.first_name;
 				$rootScope.user_info.last_name = $scope.user_form.last_name;
 				$rootScope.user_info.email = $scope.user_form.email;
