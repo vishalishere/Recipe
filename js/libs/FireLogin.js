@@ -64,7 +64,7 @@ angular.module("firebase")
     return {
         $get: function(){},
         resolve: {
-            Auth: ['$fireLogin','$q','$route','$location',function($fireLogin,$q,$route,$location)
+            auth: ['$fireLogin','$q','$route','$location',function($fireLogin,$q,$route,$location)
             {
                 return $fireLogin.resolve($q,$route,$location);
             }]
